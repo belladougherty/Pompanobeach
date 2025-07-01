@@ -120,13 +120,14 @@ footer a:hover {
 /* Dolphin Animation */
 .dolphin {
   position: fixed;
-  bottom: 20%;
-  left: -200px;
-  width: 150px;
+  bottom: 5%;
+  left: -150px;
+  width: 80px;
   height: auto;
-  animation: swim 12s linear infinite;
+  animation: swim 15s linear infinite;
   z-index: 9999;
-  opacity: 0.8;
+  opacity: 0.9;
+}
 }
 
 @keyframes swim {
