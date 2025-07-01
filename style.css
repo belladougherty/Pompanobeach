@@ -1,3 +1,4 @@
+/* Overall Page Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -62,6 +63,11 @@ section {
   margin-top: 15px;
   border-radius: 10px;
 }
+
+footer {
+  margin-top: 30px;
+}
+
 
 footer {
   margin-top: 30px;
