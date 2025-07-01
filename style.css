@@ -1,17 +1,18 @@
-/* Overall Page Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #fdfdfd;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  background: linear-gradient(135deg, pink, orange);
+  color: hotpink;
 }
 
-header {
-  background-color: #2f8f9d;
+header, footer {
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 20px;
-  color: white;
   text-align: center;
+  color: hotpink;
+  backdrop-filter: blur(5px);
 }
 
 header h1 {
@@ -30,7 +31,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: hotpink;
   text-decoration: none;
 }
 
@@ -39,27 +40,30 @@ nav ul li a:hover {
 }
 
 main {
+  max-width: 800px;
+  margin: 20px auto;
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 }
 
 section {
   margin-bottom: 30px;
-  border: 1px solid #ddd;
+  border: 2px solid hotpink;
   padding: 15px;
-  background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
 }
 
 .featured-image, .content-image {
   max-width: 100%;
   height: auto;
-  border: 3px solid #2f8f9d;
+  border: 3px solid hotpink;
   margin-top: 15px;
+  border-radius: 10px;
 }
 
 footer {
-  background-color: #2f8f9d;
-  color: white;
-  text-align: center;
-  padding: 15px;
   margin-top: 30px;
 }
+
