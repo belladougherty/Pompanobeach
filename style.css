@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Global Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,28 +8,30 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: linear-gradient(to bottom right, deeppink, orange);
-  color: hotpink;
   min-height: 100vh;
+  background: linear-gradient(to bottom right, hotpink, orange);
+  color: hotpink;
 }
 
-/* Header and footer with translucent background so gradient shows */
+/* Header and Footer */
 header, footer {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 20px;
   text-align: center;
-  color: hotpink;
   backdrop-filter: blur(5px);
   border-bottom: 2px solid hotpink;
 }
 
-/* Header title */
+footer {
+  border-top: 2px solid hotpink;
+  margin-top: 40px;
+}
+
 header h1 {
-  margin: 0;
   font-size: 2em;
 }
 
-/* Navigation styles */
+/* Navigation Styles */
 nav ul {
   list-style-type: none;
   margin-top: 10px;
@@ -37,7 +39,7 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin: 0 10px;
+  margin: 0 12px;
 }
 
 nav ul li a {
@@ -50,7 +52,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Main content container - centered with nice styling */
+/* Main Content Container */
 main {
   max-width: 800px;
   margin: 30px auto;
@@ -60,7 +62,7 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections inside main - nicely separated cards */
+/* Sections in Main */
 section {
   margin-bottom: 30px;
   padding: 15px;
@@ -70,18 +72,16 @@ section {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Headings in sections */
 section h2 {
   margin-bottom: 10px;
   font-size: 1.5em;
 }
 
-/* Paragraph text */
 section p {
   margin-bottom: 15px;
 }
 
-/* Lists with emojis and spacing */
+/* Lists */
 section ul {
   list-style-type: none;
   padding-left: 0;
@@ -99,19 +99,12 @@ section ul li::before {
   left: 0;
 }
 
-/* Images - border and rounded corners */
+/* Images */
 img {
   max-width: 100%;
   height: auto;
   border: 3px solid hotpink;
   border-radius: 10px;
   margin-top: 15px;
-}
-
-/* Footer styling */
-footer {
-  margin-top: 30px;
-  border-top: 2px solid hotpink;
-  font-size: 0.9em;
 }
 
