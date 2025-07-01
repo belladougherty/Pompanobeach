@@ -1,4 +1,4 @@
-/* Global Reset and Base Styles */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -52,7 +52,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Main Content Container */
+/* Main Content */
 main {
   max-width: 800px;
   margin: 30px auto;
@@ -62,7 +62,7 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections in Main */
+/* Sections */
 section {
   margin-bottom: 30px;
   padding: 15px;
@@ -81,7 +81,6 @@ section p {
   margin-bottom: 15px;
 }
 
-/* Lists */
 section ul {
   list-style-type: none;
   padding-left: 0;
@@ -108,3 +107,36 @@ img {
   margin-top: 15px;
 }
 
+/* Footer links */
+footer a {
+  color: hotpink;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  opacity: 0.8;
+}
+
+/* Dolphin Animation */
+.dolphin {
+  position: fixed;
+  bottom: 20%;
+  left: -200px;
+  width: 150px;
+  height: auto;
+  animation: swim 12s linear infinite;
+  z-index: 9999;
+  opacity: 0.8;
+}
+
+@keyframes swim {
+  0% {
+    transform: translateX(-200px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(100vw) rotate(10deg);
+  }
+  100% {
+    transform: translateX(-200px) rotate(0deg);
+  }
+}
