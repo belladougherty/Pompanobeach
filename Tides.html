@@ -54,7 +54,7 @@
       }
 
       const stationId = "8722956"; // Pompano Beach
-      const apiUrl = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=${selectedDate}&station=${stationId}&product=predictions&datum=MLLW&units=english&time_zone=lst_ldt&format=json&interval=hilo`;
+      const apiUrl = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=${selectedDate}&end_date=${selectedDate}&station=${stationId}&product=predictions&datum=MLLW&units=english&time_zone=lst_ldt&format=json&interval=hilo`;
 
       resultDiv.innerHTML = "<p>Loading tide data...</p>";
 
@@ -69,7 +69,12 @@
 
         let output = `<h3>Tide Predictions for ${selectedDate}</h3><ul>`;
         data.predictions.forEach(pred => {
-          output += `<li><strong>${pred.type}</strong> tide at ${pred.t} — ${pred.v} ft</li>`;
+          const time = new Date(pred.t).toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+          const type = pred.type === "H" ? "High" : "Low";
+          output += `<li><strong>${type}</strong> tide at ${time} — ${pred.v} ft</li>`;
         });
         output += "</ul>";
 
@@ -83,41 +88,6 @@
 </body>
 </html>
 
-
-  <script>
-    async function getTideTimes() {
-      const date = document.getElementById("tideDate").value;
-      const resultsDiv = document.getElementById("tideResults");
-
-      if (!date) {
-        resultsDiv.innerHTML = "Please select a date.";
-        return;
-      }
-
-      resultsDiv.innerHTML = "Loading tide data...";
-
-      try {
-        // Example: NOAA Tides API - Replace with actual values
-        const stationId = "8722670"; // Pompano Beach nearby NOAA station (Fort Lauderdale)
-        const response = await fetch(`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=${date}&station=${stationId}&product=predictions&datum=MLLW&units=english&time_zone=lst_ldt&format=json&interval=hilo`);
-        const data = await response.json();
-
-        if (!data.predictions) {
-          resultsDiv.innerHTML = "No tide data found for that date.";
-          return;
-        }
-
-        let html = "<h3>High and Low Tides</h3><ul>";
-        data.predictions.forEach(pred => {
-          html += `<li>${pred.t} — <strong>${pred.type}</strong> tide at ${pred.v} ft</li>`;
-        });
-        html += "</ul>";
-        resultsDiv.innerHTML = html;
-      } catch (err) {
-        resultsDiv.innerHTML = "Error fetching tide data. Try again later.";
-        console.error(err);
-      }
-    }
   </script>
 </body>
 </html>
