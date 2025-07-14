@@ -1,20 +1,95 @@
-/* Light pink text color for paragraphs and list items */
+/* Global  */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff8f9; /* soft  */
+  color: #333;
+}
+
+/* Header  */
+header {
+  background-color: #004e7c; /* navy blue */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Navigation menu  */
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+nav a {
+  color: #0073b1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Light pink text color  */
 main section p,
 main section ul li {
   color: #d68fa7;
 }
 
-/* Keep headings navy blue for contrast */
+/*  headings navy for contrast */
 main section h2 {
   color: #004e7c;
+  margin-bottom: 10px;
 }
 
-/* Links remain blue for clarity */
-nav a {
-  color: #0073b1;
+/* Main content  */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
+
+/* Section boxes  */
+section {
+  background-color: #fff0f5; /* light pink background */
+  border: 2px solid #d68fa7;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* List  */
+ul {
+  padding-left: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #004e7c;
+  color: white;
+  margin-top: 40px;
+}
+
 footer a {
   color: #0073b1;
+  text-decoration: none;
 }
 
-/* You can keep the rest of the CSS the same */
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Dolphin image  */
+.dolphin {
+  display: block;
+  margin: 30px auto;
+  max-width: 200px;
+}
