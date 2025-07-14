@@ -2,32 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tide Times - Pompano Beach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pompano Beach Tide Predictions</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #tideResults ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    #tideResults li {
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Tide Forecast</h1>
+    <h1>Pompano Beach Tides</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="Tides.html">Tides</a></li>
+        <li><a href="nature.html">Places to See</a></li>
+        <li><a href="town-food.html">Food</a></li>
+        <li><a href="tides.html">Tides</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Check the tides</h2>
-      <label for="tideDate">Choose a date:</label>
+      <h2>Check Tide Predictions</h2>
+      <label for="tideDate">Select a date:</label>
       <input type="date" id="tideDate" />
-      <button onclick="getTideTimes()">Check Tide Times</button>
+      <button onclick="getTides()">Get Tides</button>
       <div id="tideResults"></div>
     </section>
   </main>
+
+  <footer>
+    <p>Data provided by NOAA Tides & Currents</p>
+  </footer>
+
+  <script>
+    async function getTides() {
+      const dateInput = document.getElementById("tideDate");
+      const resultDiv = document.getElementById("tideResults");
+      const selectedDate = dateInput.value;
+
+      if (!selectedDate) {
+        resultDiv.innerHTML = "<p>Please select a date.</p>";
+        return;
+      }
+
+      const stationId = "8722956"; // Pompano Beach
+      const apiUrl = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=${selectedDate}&station=${stationId}&product=predictions&datum=MLLW&units=english&time_zone=lst_ldt&format=json&interval=hilo`;
+
+      resultDiv.innerHTML = "<p>Loading tide data...</p>";
+
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (!data.predictions || data.predictions.length === 0) {
+          resultDiv.innerHTML = "<p>No tide data available for this date.</p>";
+          return;
+        }
+
+        let output = `<h3>Tide Predictions for ${selectedDate}</h3><ul>`;
+        data.predictions.forEach(pred => {
+          output += `<li><strong>${pred.type}</strong> tide at ${pred.t} — ${pred.v} ft</li>`;
+        });
+        output += "</ul>";
+
+        resultDiv.innerHTML = output;
+      } catch (error) {
+        resultDiv.innerHTML = "<p>Error retrieving tide data. Try again later.</p>";
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
+
 
   <script>
     async function getTideTimes() {
